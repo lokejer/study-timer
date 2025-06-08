@@ -1,0 +1,54 @@
+:root {
+  /* Base Background */
+  --off-black: hsl(222, 20%, 5%);        /* #0a0c10 */
+  --dark-surface: hsl(220, 14%, 12%);     /* #1a1d23 */
+  --elevated-surface: hsl(220, 15%, 20%); /* #2a2f38 */
+
+  /* Accent Colours */
+  --primary: hsl(193, 86%, 63%);          /* #4cc9f0 */
+  --secondary: hsl(328, 94%, 57%);        /* #f72585 */
+  --highlight-1: hsl(42, 100%, 54%);      /* #ffb703 */
+  --highlight-2: hsl(292, 23%, 38%);      /* #6d4973 */
+  --highlight-3: hsl(335, 100%, 75%);     /* #ff82b2 */
+
+  /* Typography */
+  --text-primary: hsl(0, 0%, 88%);        /* #e0e0e0 */
+  --text-secondary: hsl(215, 14%, 65%);   /* #9ca3af */
+  --text-heading: hsl(0, 0%, 100%);       /* #ffffff */
+
+  /* Borders, Dividers */
+  --divider: hsl(220, 13%, 25%);          /* #3a3f47 */
+
+  /* States */
+  --success: hsl(166, 100%, 40%);         /* #00c896 */
+  --error: hsl(348, 84%, 60%);            /* #ef476f */
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw; height: 100vh;
+  background-color: var(--off-black);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* default highlight text */
+.highlight-text {
+  color: var(--highlight-1);
+  font-size: 1.5rem;
+  font-weight: bold;
+}

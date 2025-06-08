@@ -1,0 +1,82 @@
+body {
+  overflow: hidden;
+  border: 2px solid var(--divider);
+  position: relative;
+}
+
+.back-arrow {
+  position: absolute;
+  padding: 1em;
+  top: 0; left: 0;
+  z-index: 999;
+}
+
+.back-arrow:hover i {
+  animation: bob 0.6s ease infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(-5px); }
+}
+
+.timer-section {
+  width: 100vw; height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#timer {
+  user-select: none;
+  font-size: 13rem;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 4px 1px 10px var(--primary);
+}
+
+/* style the input text */
+input.glowing-input {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* style the placeholder text */
+input.glowing-input::placeholder {
+  color: #999999;
+  opacity: 0.8;
+}
+
+#timer span {
+  font-size: 9rem;
+  color: var(--text-secondary);
+  text-shadow: none;
+}
+
+.glowing-btn-wrapper {
+  position: absolute;
+  bottom: 40px; left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+/* input field for start btn */
+.glowing-btn-wrapper input {
+  text-align: center;
+}
+
+.glowing-btn, .glowing-input {
+  width: 100px; height: 40px;
+  background-color: var(--secondary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 16px;
+}
+
+.glowing-btn:hover, .glowing-input:focus {
+  outline: none;
+  background-color: hsl(328, 94%, 40%);
+  box-shadow: 0 0 32px rgba(249, 57, 159, 0.65)
+}
