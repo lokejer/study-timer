@@ -4,22 +4,6 @@ body {
   position: relative;
 }
 
-.back-arrow {
-  position: absolute;
-  padding: 1em;
-  top: 0; left: 0;
-  z-index: 999;
-}
-
-.back-arrow:hover i {
-  animation: bob 0.6s ease infinite;
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateX(0px); }
-  50% { transform: translateX(-5px); }
-}
-
 .timer-section {
   width: 100vw; height: 100vh;
   position: relative;
@@ -28,11 +12,40 @@ body {
   align-items: center;
 }
 
+/* icons */
+.modes-wrapper {
+  position: absolute;
+  margin: 1em 1.5em;
+  top: 50%; right: 0px;
+  translate: 0 -50%;  
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.mode-icon {
+  cursor: pointer;
+  width: 55px; height: 55px;
+  background: none;
+  border: none;
+  filter: invert(0.2);
+  transition: filter 0.2s ease;
+}
+
+.mode-icon.active {
+  filter: invert(1);
+}
+
+.mode-icon img {
+  width: 100%; height: 100%;
+  padding: 0.5em;
+}
+
 #timer {
   user-select: none;
   font-size: 13rem;
   font-variant-numeric: tabular-nums;
-  text-shadow: 4px 1px 10px var(--primary);
+  text-shadow: 5px 1px 10px var(--primary);
 }
 
 /* style the input text */
@@ -79,4 +92,20 @@ input.glowing-input::placeholder {
   outline: none;
   background-color: hsl(328, 94%, 40%);
   box-shadow: 0 0 32px rgba(249, 57, 159, 0.65)
+}
+
+@media (max-width: 800px) {
+  #timer {
+    font-size: 7rem;
+  }
+
+  #timer span {
+    font-size: 7rem;
+  }
+
+  .modes-wrapper {
+    margin: 2em;
+    top: 20px; right: 0;
+    flex-direction: row;
+  }
 }

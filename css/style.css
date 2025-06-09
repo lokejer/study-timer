@@ -52,3 +52,20 @@ ul {
   font-size: 1.5rem;
   font-weight: bold;
 }
+
+/* back arrow for timer and tracker pages */
+.back-arrow {
+  position: absolute;
+  padding: 1em;
+  top: 0; left: 0;
+  z-index: 999;
+}
+
+.back-arrow:hover i {
+  animation: bob 0.6s ease infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(-5px); }
+}

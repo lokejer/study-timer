@@ -16,16 +16,36 @@
 
   <title>your personal deskmate</title>
 </head>
+
 <body>
     
   <main>
     
     <a class="back-arrow" href="index.html"><i class="fa-solid fa-arrow-left"></i><span> back</span></a>
-    
+  
     <section class="timer-section">
 
+      <div class="modes-wrapper">
+        
+        <button class="mode-icon" onclick="setMode('work', this)">
+          <img src="icons/desk.png" alt="study mode icon">
+          <span>study</span>
+        </button>
+        
+        <button class="mode-icon" onclick="setMode('short', this)">
+          <img src="icons/wait.png" alt="short break icon">
+          <span>break</span>
+        </button>
+        
+        <button class="mode-icon" onclick="setMode('long', this)">
+          <img src="icons/coffee-time.png" alt="long break icon">
+          <span>rest</span>
+        </button>        
+
+      </div>
+
       <div id="timer">
-        00<span>.</span>00
+        00<span>:</span>00
       </div>
 
       <div class="glowing-btn-wrapper">

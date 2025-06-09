@@ -9,6 +9,29 @@ let remainingTime = countdownTime;
 let timerInterval = null;
 let isRunning = false;
 
+function setMode(mode, element) {
+  let minutes;
+  if (mode === 'work') minutes = 25;
+  else if (mode === 'short') minutes = 5;
+  else if (mode === 'long') minutes = 15;
+
+  countdownTime = minutes * 60 * 1000;
+  remainingTime = countdownTime;
+  timerDisplay.innerHTML = timeToString(remainingTime);
+
+  // Stop current timer if running
+  clearInterval(timerInterval);
+  isRunning = false;
+  pauseIcon.classList.remove('fa-pause');
+  pauseIcon.classList.add('fa-play');
+
+  // mode icon lights up on click
+  document.querySelectorAll('.mode-icon').forEach(icon => {
+    icon.classList.remove('active');
+  });
+  if (element) element.classList.add('active');
+}
+
 function timeToString(time) {
   const totalSeconds = Math.ceil(time / 1000);
   const minutes = Math.floor(totalSeconds / 60);
@@ -17,7 +40,7 @@ function timeToString(time) {
   const mm = minutes.toString().padStart(2, '0');
   const ss = seconds.toString().padStart(2, '0');
 
-  return `${mm}<span>.</span>${ss}`;
+  return `${mm}<span>:</span>${ss}`;
 }
 
 function updateTimer() {

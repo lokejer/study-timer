@@ -1,0 +1,89 @@
+body {
+}
+
+.card-wrapper {
+  width: 100vw; height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* IMAGE BORDER EFFECT */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card {
+  margin: 4em 2em;
+  width: 300px; height: 300px;
+  position: relative;
+}
+
+.card::before, .card::after {
+  content: '';
+  position: absolute;
+  width: 102%; height: 102%;
+  top: 50%; left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  background:
+    conic-gradient(
+    from var(--angle),
+    #1e232b83, 
+    #1e232b, 
+    #4b5869, 
+    #1e232b, 
+    #1e232b83);
+  border-radius: 8px;
+  animation: bg-rotate 9s linear infinite;
+}
+
+/* border glow effect */
+.card::before {
+  display: none; /* disable for now */
+  filter: blur(1rem);
+  opacity: 1;
+}
+
+@keyframes bg-rotate {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+.card img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  filter: brightness(40%);
+  transition: object-position 0.5s ease, filter 0.2s ease-in;
+}
+
+.card-description {
+  opacity: 0;
+  position: absolute;
+  bottom: -10px; left: 0;
+  width: 100%;
+  text-align: left;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-description .subject-code {
+  margin-top: 0.4em;
+  text-align: right;
+  color: var(--secondary);
+}
+
+.card:hover img {
+  object-position: 48% 52%;
+  filter: brightness(75%);
+}
+
+.card:hover .card-description {
+  opacity: 1;
+  transform: translateY(115%);
+}
